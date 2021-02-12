@@ -8,9 +8,9 @@ import {
   Redirect,
 } from "react-router-dom";
 import styled from 'styled-components';
+import Nav from './Nav';
 
   const Wrapper = styled.div`
-  border: 1px solid red;
     height: 100vh;
     display: flex;
     flex-direction: column;
@@ -19,17 +19,6 @@ import styled from 'styled-components';
     display: flex;
     flex-grow: 1;
     overflow: auto;
-  `;
-  const Nav = styled.div`
-    border: 1px solid red;
-    >ul {
-      display: flex;
-      >li {
-        width: 33.333%;
-        padding: 16px;
-        text-align: center;
-      }
-    }
   `;
   function App() {
     return (
@@ -52,19 +41,7 @@ import styled from 'styled-components';
                 </Route>
               </Switch>
             </Main>
-            <Nav>
-              <ul>
-                <li>
-                  <Link to="/tags">tags</Link>
-                </li>
-                <li>
-                  <Link to="/money">money</Link>
-                </li>
-                <li>
-                  <Link to="/statistics">statistics</Link>
-                </li>
-              </ul>
-            </Nav>
+            <Nav></Nav>
 
           </Wrapper>
         </Router>
@@ -83,7 +60,7 @@ function Statistics() {
 }
 function NoMatch() {
   return (
-        <h3>搞的什么鬼，页面根本不存在</h3>
+      <h3>搞的什么鬼，页面根本不存在</h3>
   );
 }
 
