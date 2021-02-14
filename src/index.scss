@@ -28,6 +28,16 @@ body {
 * {
   -webkit-tap-highlight-color:transparent;
 }
+button {
+  border: 0;
+  background-color: transparent;
+  outline: none;
+}
+input{
+  background:none;
+  outline:none;
+  border:0;
+}
 
 .icon{
   height: 1em;
