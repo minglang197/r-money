@@ -1,5 +1,6 @@
 import styled from 'styled-components';
-import React, {useState} from 'react';
+import React from 'react';
+import {useTags} from '../hooks/useTag';
 
 const Wrapper = styled.section`
     display: flex;
@@ -13,7 +14,7 @@ const Wrapper = styled.section`
       >li {
         background: #ccc;
         padding: 6px 20px;
-        margin: 0 20px 10px 0;
+        margin: 0 12px 10px 0;
         border-radius: 16px;
         &.selected {
           background: rgb(251 188 5);
@@ -22,28 +23,29 @@ const Wrapper = styled.section`
     }
 `
 type Props = {
-    value: string[]
-    onChange: (selected: string[])=>void
+    value: number[]
+    onChange: (selected: number[])=>void
 }
 const TagSection: React.FC<Props> = (props)=> {
-    const [tags,setTags] = useState<string[]>(['衣','食','住','行'])
-    const selectedTag = props.value
-    const onToggle = (tag: string)=> {
-        const index = selectedTag.indexOf(tag)
-        if(index>= 0) {
-            props.onChange(selectedTag.filter(t => t !== tag))
-        } else {
-            props.onChange([...selectedTag,tag])
-        }
+    const {tags} = useTags()
+    const selectedTagIds = props.value
+    const onToggle = (tagId: number)=> {
+            const index = selectedTagIds.indexOf(tagId)
+            if(index>= 0) {
+                props.onChange(selectedTagIds.filter(t => t !== tagId))
+            } else {
+                props.onChange([tagId])
+            }
     }
-    const getClass = (tag: string)=> selectedTag.indexOf(tag)>= 0 ? 'selected': ''
+    const getClass = (tagId: number)=>
+        selectedTagIds.indexOf(tagId)>= 0 ? 'selected': ''
 
     return(
         <Wrapper>
             <ol>
                 {tags.map(tag=>
-                    <li key={tag} onClick={()=>onToggle(tag)} className={getClass(tag)}>
-                        {tag}
+                    <li key={tag.id} onClick={()=>onToggle(tag.id)} className={getClass(tag.id)}>
+                        {tag.name}
                     </li>
                 )}
             </ol>

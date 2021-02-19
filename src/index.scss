@@ -24,6 +24,7 @@ body {
   font-family: $font-hei;
   font-size: 16px;
   line-height: 1.2;
+
 }
 * {
   -webkit-tap-highlight-color:transparent;
@@ -43,8 +44,9 @@ input{
   height: 1em;
   width: 1em;
 }
-
-//code {
-//  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-//    monospace;
-//}
+.height {
+  height: 100vh;
+}
+.button {
+  padding: 0 10px;
+}

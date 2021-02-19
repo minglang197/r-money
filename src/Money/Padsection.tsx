@@ -19,7 +19,7 @@ const Wrapper = styled.section`
         width: 25%;
         height: 60px;
         &.zero {
-          width: 50%;
+          width: 75%;
         }
         &.ok {
           float: right;
@@ -95,13 +95,6 @@ const PadSection: React.FC<Props> = (props)=> {
                     setOutput(output+text)
                 }
                 break;
-            case '.':
-                if(output.indexOf('.')>=0) {
-                   return;
-                }else {
-                   setOutput(output+'.')
-                }
-                break;
             case '删除':
                if(output.length === 1) {
                    setOutput('0')
@@ -112,10 +105,6 @@ const PadSection: React.FC<Props> = (props)=> {
             case '清空':
                 setOutput('0')
                 break;
-            case 'ok':
-                console.log('ok');
-                break;
-
         }
         if(text === 'ok') {
             if(props.onOk) {props.onOk()}
@@ -139,7 +128,6 @@ const PadSection: React.FC<Props> = (props)=> {
                 <button>9</button>
                 <button className="ok">ok</button>
                 <button className="zero">0</button>
-                <button>.</button>
             </div>
         </Wrapper>
     )

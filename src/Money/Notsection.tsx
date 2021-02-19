@@ -9,7 +9,10 @@ const Wrapper = styled.section`
       padding: 15px 10px;
       justify-content: center;
       align-items: center;
+      width: 100%;
       >input {
+        display: flex;
+        flex-grow: 1;
         padding: 1px 0 0  20px;
       }
     }
