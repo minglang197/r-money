@@ -1,6 +1,7 @@
 {
   "name": "money",
   "version": "0.1.0",
+  "homepage": "https://minglang197.github.io/react-money/",
   "private": true,
   "dependencies": {
     "@babel/core": "7.12.3",
